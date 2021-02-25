@@ -273,20 +273,20 @@ Here is the code for underwater.h:
 
 
 
-#include <iostream>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/ml/ml.hpp>
-using namespace cv;
-using namespace cv::ml;
-using namespace std;
+	#include <iostream>
+	#include <opencv2/core/core.hpp>
+	#include <opencv2/highgui/highgui.hpp>
+	#include <opencv2/imgproc/imgproc.hpp>
+	#include <opencv2/imgcodecs.hpp>
+	#include <opencv2/ml/ml.hpp>
+	using namespace cv;
+	using namespace cv::ml;
+	using namespace std;
 
 
-constexpr auto trainingsampleaddress = "sample (%d).png";
-//create an Mx3 vector of RGB values
-int createWaterOnlyFeatureVector(Mat &waterTrainingFeatureVectorRGB_uchar, Mat &waterTrainingLabelVector_float) {
+	constexpr auto trainingsampleaddress = "sample (%d).png";
+	//create an Mx3 vector of RGB values
+	int createWaterOnlyFeatureVector(Mat &waterTrainingFeatureVectorRGB_uchar, Mat &waterTrainingLabelVector_float) {
 
 	std::printf("\n\n function createWaterOnlyFeatureVector\n\n");
 	// char array to store filenames
