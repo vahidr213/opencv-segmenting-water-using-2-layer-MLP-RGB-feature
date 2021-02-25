@@ -60,54 +60,32 @@ In this case, we insist on replicating the process by yourself.
 
 
 
-Input image:
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Binary labeled image:
- 
-
-
-
-
-
 
 
 The following code is function main() + 
 Train_test_ANN_MLP_SIGMOID_BACKPROP_PATCH:
 
 
-#include <iostream>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/ml/ml.hpp>
-#include "underwater.h"
-#include <fstream>
-using namespace cv;
-using namespace cv::ml;
-using namespace std;
 
-Mat image;
+	#include <iostream>
+	#include <opencv2/core/core.hpp>
+	#include <opencv2/highgui/highgui.hpp>
+	#include <opencv2/imgproc/imgproc.hpp>
+	#include <opencv2/imgcodecs.hpp>
+	#include <opencv2/ml/ml.hpp>
+	#include "underwater.h"
+	#include <fstream>
+	using namespace cv;
+	using namespace cv::ml;
+	using namespace std;
 
-void Train_test_ANN_MLP_SIGMOID_BACKPROP_PATCH(
-    int nclasses, const Mat& TrainData, const Mat& TrainLabels, Mat& TestLabels) {
-    //TrainData = ntrainsamples * nFeatures - float typr
-    //TrainLabels=ntrainsamples*1   - float type
-    //TestData=ntestsamples*nfeatures - float type
+	Mat image;
+
+	void Train_test_ANN_MLP_SIGMOID_BACKPROP_PATCH(
+	    int nclasses, const Mat& TrainData, const Mat& TrainLabels, Mat& TestLabels) {
+	    //TrainData = ntrainsamples * nFeatures - float typr
+	    //TrainLabels=ntrainsamples*1   - float type
+	    //TestData=ntestsamples*nfeatures - float type
 
     // print function is starting
     std::printf("\n\nTrain_Test_ANN_MLP_SIGMOID_BackProp\n");
@@ -205,8 +183,8 @@ void Train_test_ANN_MLP_SIGMOID_BACKPROP_PATCH(
     float nWaterPixels = 409259.0f;
     std::cout << "water accuracy:\t\t" << SumPredictionVector / nWaterPixels << endl;
 
-int main()
-{
+	int main()
+	{
 
     //read an image
     image = imread("water (8).png", 1);
@@ -280,42 +258,7 @@ int main()
 
     return 0;
 
-}// end main
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}// end main
 
 
 
@@ -456,11 +399,11 @@ int createWaterOnlyFeatureVector(Mat &waterTrainingFeatureVectorRGB_uchar, Mat &
 	// assign the output
 	waterTrainingFeatureVectorRGB_uchar = waterTrainingRGBVector;
 	waterTrainingLabelVector_float = waterTrainingLabelsVector_float;
-	
-}// end of function createWaterOnlyFeatureVector
+
+	}// end of function createWaterOnlyFeatureVector
 
 
-int CreateNonWaterFeatureVector(Mat &NonWaterFetureVectorRGB_uchar, Mat &NonWaterLabelVector_float) {
+	int CreateNonWaterFeatureVector(Mat &NonWaterFetureVectorRGB_uchar, Mat &NonWaterLabelVector_float) {
 
 	//read an image
 	Mat image = imread("9554.png", 1);
@@ -507,16 +450,16 @@ int CreateNonWaterFeatureVector(Mat &NonWaterFetureVectorRGB_uchar, Mat &NonWate
 	//cout << NonWaterLabelVector_float << "\n";
 
 	// assign output
-	NonWaterFetureVectorRGB_uchar = NonWaterRGBVector;
-}// end of function createWaterOnlyFeatureVector
+		NonWaterFetureVectorRGB_uchar = NonWaterRGBVector;
+	}// end of function createWaterOnlyFeatureVector
 
 
-////////////////////////////////////////
-int RedChannelCompensationEq8(Mat& image, float AlphaCoefficient, Mat &RedCompensatedImage) {
-	// red channel compensation based on eq.8 
-	// of paper Color Correction Based on CFA and Enhancement
-	//Based on Retinex With Dense Pixels for
-	//Underwater Images
+	////////////////////////////////////////
+	int RedChannelCompensationEq8(Mat& image, float AlphaCoefficient, Mat &RedCompensatedImage) {
+		// red channel compensation based on eq.8 
+		// of paper Color Correction Based on CFA and Enhancement
+		//Based on Retinex With Dense Pixels for
+		//Underwater Images
 
 	
 	//planes is a vector for holding rgb channels separately
@@ -602,16 +545,16 @@ int RedChannelCompensationEq8(Mat& image, float AlphaCoefficient, Mat &RedCompen
 
 	return 0;
 
-}//end of function RedChannelCompensationEq8
+	}//end of function RedChannelCompensationEq8
 
-void imshowwindownormal(const char name4window[128], Mat& tmp4image) {
-	namedWindow(name4window, cv::WINDOW_NORMAL); 
-	imshow(name4window, tmp4image);
-}
+	void imshowwindownormal(const char name4window[128], Mat& tmp4image) {
+		namedWindow(name4window, cv::WINDOW_NORMAL); 
+		imshow(name4window, tmp4image);
+	}
 
 
 
-int createWaterOnlyHSVFeatureVector(Mat& waterTrainingFeatureVectorRGB_uchar, Mat& waterTrainingLabelVector_float) {
+	int createWaterOnlyHSVFeatureVector(Mat& waterTrainingFeatureVectorRGB_uchar, Mat& waterTrainingLabelVector_float) {
 
 	std::printf("\n\n function createWaterOnlyFeatureVector\n\n");
 	// char array to store filenames
@@ -728,10 +671,10 @@ int createWaterOnlyHSVFeatureVector(Mat& waterTrainingFeatureVectorRGB_uchar, Ma
 	waterTrainingFeatureVectorRGB_uchar = waterTrainingRGBVector;
 	waterTrainingLabelVector_float = waterTrainingLabelsVector_float;
 
-}// end of function createWaterOnlyHSVFeatureVector
+	}// end of function createWaterOnlyHSVFeatureVector
 
 
-int CreateNonWaterHSVFeatureVector(Mat& NonWaterFetureVectorRGB_uchar, Mat& NonWaterLabelVector_float) {
+	int CreateNonWaterHSVFeatureVector(Mat& NonWaterFetureVectorRGB_uchar, Mat& NonWaterLabelVector_float) {
 
 	//read an image
 	Mat image = imread("9554.png", 1);
@@ -782,11 +725,11 @@ int CreateNonWaterHSVFeatureVector(Mat& NonWaterFetureVectorRGB_uchar, Mat& NonW
 
 	// assign output
 	NonWaterFetureVectorRGB_uchar = NonWaterRGBVector;
-}// end of function createWaterOnlyHSVFeatureVector
+	}// end of function createWaterOnlyHSVFeatureVector
 
-void printminMaxLoc(Mat& in) {
-	double min, max;
-	cv::minMaxLoc(in, &min, &max);
-	std::cout << "min and max:\t" << min << "\t" << max << "\n";
-}// end printminmaxloc
+	void printminMaxLoc(Mat& in) {
+		double min, max;
+		cv::minMaxLoc(in, &min, &max);
+		std::cout << "min and max:\t" << min << "\t" << max << "\n";
+	}// end printminmaxloc
 
